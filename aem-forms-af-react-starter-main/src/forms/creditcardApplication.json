@@ -1,0 +1,1233 @@
+{
+    "adaptiveform": "0.10.0",
+    "items": [
+        {
+            ":type": "custom:horizontal-tab",
+            "name": "combinedScreen",
+            "fieldType": "panel",
+            "properties": {
+                "afs:layout": {
+                    "UNSAFE_className": "custom-horizontal-tab"
+                },
+                "valid": false
+            },
+            "items": [
+                {
+                    ":type": "custom:vertical-tab",
+                    "name": "yourInfo",
+                    "visible": true,
+                    "label": {
+                        "value": "Your Info"
+                    },
+                    "fieldType": "panel",
+                    "items": [
+                        {
+                            ":type": "custom:verical-tab",
+                            "name": "contactDetails",
+                            "visible": true,
+                            "label": {
+                                "value": "Contact"
+                            },
+                            "fieldType": "panel",
+                            "properties": {
+                                "afs:layout": {
+                                    "UNSAFE_className": "custom-vertical-tab"
+                                }
+                            },
+                            "items": [
+                                {
+                                    "name": "firstName",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "First Name"
+                                    },
+                                    "constraintMessages": {
+                                        "required": "First Name is required"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    },
+                                    "fieldType": "text-input",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "middleName",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Middle Name"
+                                    },
+                                    "fieldType": "text-input",
+                                    "required": false,
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "lastName",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Last Name"
+                                    },
+                                    "constraintMessages": {
+                                        "required": "Last Name is required"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    },
+                                    "fieldType": "text-input",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "email",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Email"
+                                    },
+                                    "constraintMessages": {
+                                        "pattern": "Enter a valid email address",
+                                        "required": "Email is required"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    },
+                                    "format": "email",
+                                    "pattern": "^[a-z][a-z0-9]{2,}@[a-z]{2,}\\.com",
+                                    "description": "We will use email to communicate updates on your application status and may contact you for additional information if needed. Please provide an email address you check frequently.",
+                                    "fieldType": "text-input",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "phoneNumber",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Phone Number"
+                                    },
+                                    "constraintMessages": {
+                                        "pattern": "Enter a valid phone number",
+                                        "required": "Phone Number is required"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    },
+                                    "description": "This should be the best possible phone number to reach you at, whether that be your home or mobile number. We may need your phone number to contact you regarding the opening or servicing of your account. We may also use your phone number for other purposes allowed by law or the terms of our Privacy Notice. Message and data rates may apply.",
+                                    "fieldType": "text-input",
+                                    "maxLength": 10,
+                                    "pattern": "[1-9]{10}",
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "phoneType",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Phone Type"
+                                    },
+                                    "constraintMessages": {
+                                        "required": "Phone Type is required"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    },
+                                    "enum": [
+                                        "Mobile",
+                                        "Home",
+                                        "Work"
+                                    ],
+                                    "fieldType": "drop-down",
+                                    "type": "string",
+                                    "required": true
+                                },
+                                {
+                                    "name": "contactNextButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Next"
+                                    },
+                                    "fieldType": "button",
+                                    "rules": {
+                                        "enabled": "length(phoneNumber)==10"
+                                    },
+                                    "events": {
+                                        "click": [
+                                            "{properties: {valid: validate($form.combinedScreen.yourInfo.contactDetails)}}",
+                                            "if(length($properties.valid) == 0, setFocus($form.combinedScreen.yourInfo.personalDetails), {})"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            ":type": "custom:verical-tab",
+                            "name": "personalDetails",
+                            "visible": true,
+                            "label": {
+                                "value": "Personal"
+                            },
+                            "fieldType": "panel",
+                            "properties": {
+                                "afs:layout": {
+                                    "UNSAFE_className": "custom-vertical-tab"
+                                }
+                            },
+                            "items": [
+                                {
+                                    "name": "dateOfBirth",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "What is your date of birth?"
+                                    },
+                                    "required": true,
+                                    "constraintMessages": {
+                                        "pattern": "Enter a valid date of birth number",
+                                        "required": "Date of birth is required"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    },
+                                    "type": "string",
+                                    "fieldType": "text-input"
+                                },
+                                {
+                                    "name": "socialSecurityNumber",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "What is your social security number?"
+                                    },
+                                    "constraintMessages": {
+                                        "pattern": "Enter a valid social security number",
+                                        "required": "Social security number is required"
+                                    },
+                                    "fieldType": "text-input",
+                                    "maxLength": 9,
+                                    "pattern": "^[0-9]{0,9}",
+                                    "required": true,
+                                    "type": "string",
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "personalBackButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Back"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourInfo.contactDetails)"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "personalNextButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Next"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "validate($form.combinedScreen.yourInfo.personalDetails)",
+                                            "setFocus($form.combinedScreen.yourInfo.addressDetails)"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            ":type": "custom:verical-tab",
+                            "name": "addressDetails",
+                            "visible": true,
+                            "label": {
+                                "value": "Address"
+                            },
+                            "fieldType": "panel",
+                            "properties": {
+                                "afs:layout": {
+                                    "UNSAFE_className": "custom-vertical-tab"
+                                }
+                            },
+                            "items": [
+                                {
+                                    "name": "streetAddress",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Street address",
+                                        "visible": false
+                                    },
+                                    "placeholder": "Address",
+                                    "required": true,
+                                    "maxLength": 30,
+                                    "constraintMessages": {
+                                        "pattern": "Enter a valid street address",
+                                        "required": "Street address is required"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    },
+                                    "fieldType": "text-input"
+                                },
+                                {
+                                    "name": "city",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "City",
+                                        "visible": false
+                                    },
+                                    "placeholder": "City",
+                                    "constraintMessages": {
+                                        "pattern": "Enter a valid social security number",
+                                        "required": "Social security number is required"
+                                    },
+                                    "fieldType": "text-input",
+                                    "maxLength": 9,
+                                    "pattern": "^[0-9]{0,9}",
+                                    "required": true,
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "state",
+                                    "label": {
+                                        "value": "Sate",
+                                        "visible": false
+                                    },
+                                    "placeholder": "Select State",
+                                    "fieldType": "drop-down",
+                                    "enumNames": [
+                                        "Texas",
+                                        "Kansas",
+                                        "Arizona"
+                                    ],
+                                    "enum": [
+                                        "Texas",
+                                        "Kansas",
+                                        "Arizona"
+                                    ]
+                                },
+                                {
+                                    "name": "zip",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Zip",
+                                        "visible": false
+                                    },
+                                    "placeholder": "ZIP",
+                                    "constraintMessages": {
+                                        "pattern": "Enter a valid zip code",
+                                        "required": "Zip code is required"
+                                    },
+                                    "fieldType": "text-input",
+                                    "maxLength": 9,
+                                    "pattern": "[0-9]{0,9}",
+                                    "required": true,
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "addressBackButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Back"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourInfo.personalDetails)"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "addressNextButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Next"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourInfo.employmentDetails)"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            ":type": "custom:verical-tab",
+                            "name": "employmentDetails",
+                            "visible": true,
+                            "label": {
+                                "value": "Employment"
+                            },
+                            "fieldType": "panel",
+                            "properties": {
+                                "afs:layout": {
+                                    "UNSAFE_className": "custom-vertical-tab"
+                                }
+                            },
+                            "items": [
+                                {
+                                    "name": "employmentStatus",
+                                    "label": {
+                                        "value": "Which best describes your employment status?",
+                                        "visible": true
+                                    },
+                                    "required": true,
+                                    "constraintMessages": {
+                                        "required": "Employment status is required"
+                                    },
+                                    "placeholder": "Select",
+                                    "fieldType": "drop-down",
+                                    "type": "string",
+                                    "enumNames": [
+                                        "Texas",
+                                        "Kansas",
+                                        "Arizona"
+                                    ],
+                                    "enum": [
+                                        "Texas",
+                                        "Kansas",
+                                        "Arizona"
+                                    ]
+                                },
+                                {
+                                    "name": "annualIncome",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "What is your annual income?(before taxes)",
+                                        "visible": true
+                                    },
+                                    "placeholder": "$",
+                                    "constraintMessages": {
+                                        "pattern": "Enter a annual income",
+                                        "required": "Annual income is required"
+                                    },
+                                    "fieldType": "text-input",
+                                    "type": "string",
+                                    "maxLength": 9,
+                                    "pattern": "[0-9]{0,9}",
+                                    "required": true,
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "contributeToAnnualIncome",
+                                    "fieldType": "checkbox-group",
+                                    "label": {
+                                        "value": "Do any of the following contribute to your annual income?"
+                                    },
+                                    "required": false,
+                                    "type": "string",
+                                    "enum": [
+                                        "Benefits",
+                                        "RentalProperty",
+                                        "AlimonyChildSupport",
+                                        "Investments"
+                                    ],
+                                    "enumNames": [
+                                        "Benefits",
+                                        "Rental Property",
+                                        "Alimony/Child Support",
+                                        "Investments"
+                                    ]
+                                },
+                                {
+                                    "name": "employmentBackButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Back"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourInfo.addressDetails)"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "employmentNextButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Next"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.review)"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "events": {
+                        "custom:setHidePage": "$event.payload"
+                    }
+                },
+                {
+                    ":type": "custom:vertical-tab",
+                    "name": "review",
+                    "visible": true,
+                    "label": {
+                        "value": "Review"
+                    },
+                    "fieldType": "panel",
+                    "items": [
+                        {
+                            "fieldType": "panel",
+                            "name": "reviewInfo",
+                            "type": "object",
+                            "items": [
+                                {
+                                    "name": "contactInformationTxt",
+                                    "fieldType": "plain-text",
+                                    "value": "Contact Information",
+                                    "visible": true
+                                },
+                                {
+                                    "fieldType": "panel",
+                                    "name": "contactInformation",
+                                    "type": "object",
+                                    "items": [
+                                        {
+                                            "name": "fullName",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "Full Name",
+                                                "visible": false
+                                            },
+                                            "readOnly": true,
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "default": "Matt K Thomsan",
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        },
+                                        {
+                                            "name": "emailReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "Email",
+                                                "visible": false
+                                            },
+                                            "readOnly": true,
+                                            "default": "matt@adobe.com",
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        },
+                                        {
+                                            "name": "phoneNumberReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "Phone Numer",
+                                                "visible": false
+                                            },
+                                            "readOnly": true,
+                                            "default": "345-679-1234",
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "contactEditButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Edit"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.contactInformation.fullName,'custom:enableEdit',{readOnly:false()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.contactInformation.emailReview,'custom:enableEdit',{readOnly:false()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.contactInformation.phoneNumberReview,'custom:enableEdit',{readOnly:false()})"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "contactSaveButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Save"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.contactInformation.fullName,'custom:disableEdit',{readOnly:true()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.contactInformation.emailReview,'custom:disableEdit',{readOnly:true()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.contactInformation.phoneNumberReview,'custom:disableEdit',{readOnly:true()})"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "personalInformationTxt",
+                                    "fieldType": "plain-text",
+                                    "value": "Personal Information",
+                                    "visible": true
+                                },
+                                {
+                                    "fieldType": "panel",
+                                    "name": "personalInformation",
+                                    "type": "object",
+                                    "items": [
+                                        {
+                                            "name": "dateOfBirthReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "Date of Birth",
+                                                "visible": true
+                                            },
+                                            "readOnly": true,
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "default": "11/02/1990",
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        },
+                                        {
+                                            "name": "socialSecurityNumberReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "Social Security Number",
+                                                "visible": true
+                                            },
+                                            "readOnly": true,
+                                            "default": "123-34-34567",
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "personalditButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Edit"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.personalInformation.dateOfBirthReview,'custom:enableEdit',{readOnly:false()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.personalInformation.socialSecurityNumberReview,'custom:enableEdit',{readOnly:false()})"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "personalSaveButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Save"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.personalInformation.dateOfBirthReview,'custom:disableEdit',{readOnly:true()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.personalInformation.socialSecurityNumberReview,'custom:disableEdit',{readOnly:true()})"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "streetAddressInformationTxt",
+                                    "fieldType": "plain-text",
+                                    "value": "Street Address",
+                                    "visible": true
+                                },
+                                {
+                                    "fieldType": "panel",
+                                    "name": "streetAddressInformation",
+                                    "type": "object",
+                                    "items": [
+                                        {
+                                            "name": "streetAddressReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "Street Address",
+                                                "visible": false
+                                            },
+                                            "readOnly": true,
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "default": "123 E Main Street",
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        },
+                                        {
+                                            "name": "cityReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "City",
+                                                "visible": false
+                                            },
+                                            "readOnly": true,
+                                            "default": "Sandy",
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        },
+                                        {
+                                            "name": "stateReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "State",
+                                                "visible": false
+                                            },
+                                            "readOnly": true,
+                                            "default": "UT",
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        },
+                                        {
+                                            "name": "zipCodeReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "Zip",
+                                                "visible": false
+                                            },
+                                            "readOnly": true,
+                                            "default": "34590-1234",
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "addressEditButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Edit"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.streetAddressInformation.streetAddressReview,'custom:enableEdit',{readOnly:false()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.streetAddressInformation.cityReview,'custom:enableEdit',{readOnly:false()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.streetAddressInformation.stateReview,'custom:enableEdit',{readOnly:false()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.streetAddressInformation.zipCodeReview,'custom:enableEdit',{readOnly:false()})"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "addressSaveButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Save"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.streetAddressInformation.streetAddressReview,'custom:disableEdit',{readOnly:true()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.streetAddressInformation.cityReview,'custom:disableEdit',{readOnly:true()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.streetAddressInformation.stateReview,'custom:disableEdit',{readOnly:true()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.streetAddressInformation.zipCodeReview,'custom:disableEdit',{readOnly:true()})"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "employmentTxt",
+                                    "fieldType": "plain-text",
+                                    "value": "Employment",
+                                    "visible": true
+                                },
+                                {
+                                    "fieldType": "panel",
+                                    "name": "employmentInformation",
+                                    "type": "object",
+                                    "items": [
+                                        {
+                                            "name": "employmentStatusReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "Employment Status",
+                                                "visible": true
+                                            },
+                                            "readOnly": true,
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "default": "Student",
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        },
+                                        {
+                                            "name": "annualIncomeReview",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "Annual Income",
+                                                "visible": true
+                                            },
+                                            "readOnly": true,
+                                            "default": "$234",
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "type": "string",
+                                            "events": {
+                                                "custom:enableEdit": "$event.payload",
+                                                "custom:disableEdit": "$event.payload"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "employeeEditButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Edit"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.employmentInformation.employmentStatusReview,'custom:enableEdit',{readOnly:false()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.employmentInformation.annualIncomeReview,'custom:enableEdit',{readOnly:false()})"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "employeeSaveButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Save"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.employmentInformation.employmentStatusReview,'custom:disableEdit',{readOnly:true()})",
+                                            "dispatchEvent($form.combinedScreen.review.reviewInfo.employmentInformation.annualIncomeReview,'custom:disableEdit',{readOnly:true()})"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "reviewBackButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Back"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourInfo.employmentDetails)"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "reviewConfirmButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Confirm"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourAccount.optionsDetails)"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "events": {
+                        "custom:setHidePage": "$event.payload"
+                    }
+                },
+                {
+                    ":type": "custom:vertical-tab",
+                    "name": "yourAccount",
+                    "visible": true,
+                    "label": {
+                        "value": "Your Account"
+                    },
+                    "fieldType": "panel",
+                    "items": [
+                        {
+                            ":type": "custom:verical-tab",
+                            "name": "optionsDetails",
+                            "visible": true,
+                            "label": {
+                                "value": "Options"
+                            },
+                            "fieldType": "panel",
+                            "properties": {
+                                "afs:layout": {
+                                    "UNSAFE_className": "custom-vertical-tab"
+                                }
+                            },
+                            "items": [
+                                {
+                                    "name": "rewardTypeConsent",
+                                    "fieldType": "radio-group",
+                                    "label": {
+                                        "value": "Would you like cash or points for your rewards?"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "orientation": "horizontal"
+                                        }
+                                    },
+                                    "enum": [
+                                        "cash",
+                                        "points"
+                                    ],
+                                    "enumNames": [
+                                        "Cash",
+                                        "Points"
+                                    ]
+                                },
+                                {
+                                    "name": "authorizedUserConsent",
+                                    "fieldType": "radio-group",
+                                    "label": {
+                                        "value": "Would you like to add authorized user?"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "orientation": "horizontal"
+                                        }
+                                    },
+                                    "type": "boolean"
+                                },
+                                {
+                                    "name": "authorizedUserTxtMsg",
+                                    "fieldType": "plain-text",
+                                    "value": "Enter the names of authorized user (5 authorized users are allowed)",
+                                    "visible": true,
+                                    "rules": {
+                                        "visible": "authorizedUserConsent == true()"
+                                    }
+                                },
+                                {
+                                    "fieldType": "panel",
+                                    "name": "names",
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "maxItems": 5,
+                                    "visible": false,
+                                    "items": [
+                                        {
+                                            "name": "fullName",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "User Name"
+                                            },
+                                            "constraintMessages": {
+                                                "required": "Authorized user name is required"
+                                            },
+                                            "properties": {
+                                                "afs:layout": {
+                                                    "UNSAFE_className": "textField_mandatory"
+                                                }
+                                            },
+                                            "fieldType": "text-input",
+                                            "required": true,
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "rules": {
+                                        "visible": "authorizedUserConsent == true()"
+                                    }
+                                },
+                                {
+                                    "name": "optionsNextButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Next"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourAccount.digitalBankingDetails)"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            ":type": "custom:verical-tab",
+                            "name": "digitalBankingDetails",
+                            "visible": true,
+                            "label": {
+                                "value": "Digital Banking"
+                            },
+                            "fieldType": "panel",
+                            "properties": {
+                                "afs:layout": {
+                                    "UNSAFE_className": "custom-vertical-tab"
+                                }
+                            },
+                            "items": [
+                                {
+                                    "name": "loginIDPwdTxt",
+                                    "fieldType": "plain-text",
+                                    "value": "Please create your login ID and password here",
+                                    "visible": true
+                                },
+                                {
+                                    "name": "digitalBankingConsent",
+                                    "type": "boolean",
+                                    "fieldType": "checkbox",
+                                    "label": {
+                                        "value": "I already have or I do not want Digital Banking"
+                                    }
+                                },
+                                {
+                                    "name": "loginID",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Create a Login ID"
+                                    },
+                                    "constraintMessages": {
+                                        "required": "Login ID is required"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    },
+                                    "fieldType": "text-input",
+                                    "required": true,
+                                    "type": "string",
+                                    "rules": {
+                                        "visible": "digitalBankingConsent != true()"
+                                    }
+                                },
+                                {
+                                    "label": {
+                                        "value": "Create a password"
+                                    },
+                                    "name": "password",
+                                    "fieldType": "password-input",
+                                    "type": "string",
+                                    "required": true,
+                                    "constraintMessages": {
+                                        "required": "Password is required"
+                                    },
+                                    "properties": {
+                                        "afs:layout": {
+                                            "UNSAFE_className": "textField_mandatory"
+                                        }
+                                    },
+                                    "rules": {
+                                        "visible": "digitalBankingConsent != true()"
+                                    }
+                                },
+                                {
+                                    "name": "digitalBankingBackButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Back"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourAccount.optionsDetails)"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "digitalBankingNextButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Next"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourAccount.disclosuresDetails)"
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            ":type": "custom:verical-tab",
+                            "name": "disclosuresDetails",
+                            "visible": true,
+                            "label": {
+                                "value": "Disclosures"
+                            },
+                            "fieldType": "panel",
+                            "properties": {
+                                "afs:layout": {
+                                    "UNSAFE_className": "custom-vertical-tab"
+                                }
+                            },
+                            "items": [
+                                {
+                                    "name": "termsConsent",
+                                    "type": "boolean",
+                                    "fieldType": "checkbox",
+                                    "label": {
+                                        "value": "I have read Electronic Consent and agree to receive Terms & Disclosures electronically"
+                                    },
+                                    "required": true,
+                                    "constraintMessages": {
+                                        "required": "Required"
+                                    }
+                                },
+                                {
+                                    "fieldType": "panel",
+                                    "name": "termsAndCondtions",
+                                    "type": "object",
+                                    "visible": false,
+                                    "items": [
+                                        {
+                                            "name": "termsAndCondtionsTxt",
+                                            "fieldType": "plain-text",
+                                            "value": "By Clicking SUBMIT below, I HEREBY",
+                                            "visible": true
+                                        },
+                                        {
+                                            "name": "applicantTermsConsent",
+                                            "type": "boolean",
+                                            "fieldType": "checkbox",
+                                            "visible": true,
+                                            "label": {
+                                                "value": "I have received,read and agree to the above Terms & Disclosures"
+                                            },
+                                            "default": true,
+                                            "required": true,
+                                            "constraintMessages": {
+                                                "required": "Required"
+                                            }
+                                        }
+                                    ],
+                                    "rules": {
+                                        "visible": "termsConsent == true()"
+                                    }
+                                },
+                                {
+                                    "name": "disclosuresBankingBackButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Back"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "setFocus($form.combinedScreen.yourAccount.digitalBankingDetails)"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "disclosuresSubmitButton",
+                                    "visible": true,
+                                    "label": {
+                                        "value": "Submit Application"
+                                    },
+                                    "fieldType": "button",
+                                    "events": {
+                                        "click": [
+                                            "dispatchEvent($form.combinedScreen.thankYou,'custom:setShowPage',{visible:true()})",
+                                            "setFocus($form.combinedScreen.thankYou)",
+                                            "dispatchEvent($form.combinedScreen.yourInfo,'custom:setHidePage',{visible:false()})",
+                                            "dispatchEvent($form.combinedScreen.review,'custom:setHidePage',{visible:false()})",
+                                            "dispatchEvent($form.combinedScreen.yourAccount,'custom:setHidePage',{visible:false()})"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "events": {
+                        "custom:setHidePage": "$event.payload"
+                    }
+                },
+                {
+                    ":type": "custom:vertical-tab",
+                    "name": "thankYou",
+                    "visible": false,
+                    "label": {
+                        "value": "Thank You"
+                    },
+                    "fieldType": "panel",
+                    "items": [
+                        {
+                            "name": "thankYouTxt",
+                            "fieldType": "plain-text",
+                            "value": "Thank you! Your Application is complete.",
+                            "visible": true
+                        }
+                    ],
+                    "events": {
+                        "custom:setShowPage": "$event.payload"
+                    }
+                }
+            ]
+        }
+    ],
+    "action": "http://www.google.com/",
+    "metadata": {
+        "description": "Creditcard Application form",
+        "grammar": "json-formula-1.0.0",
+        "name": "ABC-Bank Creditcard Application Form",
+        "tags": [
+            "creditcard"
+        ],
+        "version": "1.0.0"
+    }
+}

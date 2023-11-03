@@ -1,0 +1,186 @@
+{
+  "title": "EligibilityScreener",
+  "templateType": "eligibilityscreener",
+  ":items": {
+    "guideContainer": {
+      ":type": "fd/af/components/guideContainer",
+      "autoSaveStrategyType": "fd/af/components/actions/autosave/eventbased",
+      "_invokeSubmitActionSync": "true",
+      "textIsRich": "true",
+      "guideCss": "guideContainer",
+      "useExistingAF": "false",
+      "thankYouMessage": "Thank you for submitting the form.",
+      "fd:version": "1.1",
+      "guideNodeClass": "guideContainerNode",
+      "enableFocusOnFirstField": true,
+      "disableSwipeGesture": false,
+      "enableAsyncSubmission": "true",
+      "enableLayoutLayer": "false",
+      "themeRef": "/content/dam/formsanddocuments-themes/mythemes/eligibilityscreener",
+      "name": "guide1",
+      "autoSaveStartExpression": "true",
+      "thankYouOption": "page",
+      "enableServerValidation": "true"
+    },
+    "parsys1": {
+      "columnCount": 12,
+      "gridClassNames": "aem-Grid aem-Grid--12 aem-Grid--default--12",
+      "columnClassNames": {
+        "guideheader_1746584792": "aem-GridColumn aem-GridColumn--default--12"
+      },
+      "allowedComponents": {
+        "applicable": false,
+        "components": [
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/adaptiveimage",
+            "title": "Adaptive Image"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/fd/af/components/aemform",
+            "title": "AEM Form"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/cq/experience-fragments/editor/components/buildingblock",
+            "title": "Building Block"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/carousel",
+            "title": "Carousel"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/chart",
+            "title": "Chart"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/dam/cfm/components/contentfragment",
+            "title": "Content Fragment"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/download",
+            "title": "Download"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/cq/experience-fragments/editor/components/experiencefragment",
+            "title": "Experience Fragment"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/external",
+            "title": "External"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/image",
+            "title": "Image"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/wcm/foundation/components/image",
+            "title": "Image - HTL"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/list",
+            "title": "List"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/wcm/foundation/components/list",
+            "title": "List - HTL"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/login",
+            "title": "Login"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/reference",
+            "title": "Reference"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/wcm/foundation/components/responsivegrid",
+            "title": "Layout Container"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/search",
+            "title": "Search"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/sitemap",
+            "title": "Sitemap"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/table",
+            "title": "Table"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/cq/tagging/components/tagcloud",
+            "title": "Tag Cloud"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/text",
+            "title": "Text"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/wcm/foundation/components/text",
+            "title": "Text - HTL"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/textimage",
+            "title": "Text & Image"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/wcm/foundation/components/textimage",
+            "title": "Text & Image - HTL"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/wcm/designimporter/components/title",
+            "title": "Title (WCM)"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/wcm/foundation/components/title",
+            "title": "Title - HTL"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/title",
+            "title": "Title"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/foundation/components/video",
+            "title": "Video"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/fd/af/components/guideheader",
+            "title": "Header"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/fd/af/components/guidefooter",
+            "title": "Footer"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/fd/af/components/guideimage",
+            "title": "Image"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/fd/af/components/guidetextdraw",
+            "title": "Text"
+          },
+          {
+            "path": "/content/forms/af/eligibilityscreener/eligibilityscreener/jcr:content/parsys1/fd/af/components/afFormTitle",
+            "title": "Title"
+          }
+        ]
+      },
+      ":items": {
+        "guideheader_1746584792": {
+          ":type": "fd/af/components/guideheader",
+          "name": "header_17465847921682333587377",
+          "jcr:title": "Adaptive Form Header"
+        }
+      },
+      ":itemsOrder": [
+        "guideheader_1746584792"
+      ],
+      ":type": "wcm/foundation/components/responsivegrid"
+    }
+  },
+  ":itemsOrder": [
+    "guideContainer",
+    "parsys1"
+  ],
+  ":type": "fd/af/components/page2/aftemplatedpage"
+}
